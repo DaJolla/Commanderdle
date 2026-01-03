@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Deckle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .input-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    input:disabled {
+      background-color: #eee;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+
+    button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      background: white;
+      z-index: 10;
+      max-height: 150px;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .suggestion {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .suggestion:hover {
+      background-color: #eee;
+    }
+
+    table {
+      margin: 30px auto;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      min-width: 130px;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .cell-green {
+      background-color: #6aaa64;
+      color: white;
+      font-weight: bold;
+    }
+
+    .cell-yellow {
+      background-color: #c9b458;
+      color: white;
+      font-weight: bold;
+    }
+
+    .cell-red {
+      background-color: #c94c4c;
+      color: white;
+      font-weight: bold;
+    }
+
+    #winMessage {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #6aaa64;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Commanderdle</h1>
+  <p>Vem är commandern? :o</p>
+
+  <div class="input-container">
+    <input id="guessInput" placeholder="Start typing a commander name">
+    <div id="suggestions" class="suggestions"></div>
+  </div>
+  <button id="guessButton" onclick="makeGuess()">Guess</button>
+
+  <div id="winMessage"></div>
+
+  <table id="guessTable">
+    <thead>
+      <tr>
+        <th>Commander</th>
+        <th>Owner</th>
+        <th>Colors</th>
+        <th>Mana Cost</th>
+        <th>Year</th>
+        <th>Archetype</th>
+        <th>Salt</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+
+const manaEmojis = {
+  W: "⚪",
+  U: "🔵",
+  B: "⚫",
+  R: "🔴",
+  G: "🟢"
+};
+
+const commanders = [
+{
+  name: "Korvold, Fae-Cursed King",
+  owner: "Leo",
+  colors: ["B", "R", "G"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Value",
+  salt: 5
+},
+{
+  name: "Iroh, Grand Lotus",
+  owner: "Filip",
+  colors: ["U", "R", "G"],
+  manaCost: 6,
+  year: "Current",
+  archetype: "Spellslinger",
+  salt: 4
+},
+{
+  name: "Vial Smasher the Fierce // Sakashima of a Thousand Faces",
+  owner: "William",
+  colors: ["U", "B", "R"],
+  manaCost: 7,
+  year: "Current",
+  archetype: "Weird",
+  salt: 4
+},
+{
+  name: "Thromok the Insatiable",
+  owner: "Richard",
+  colors: ["R", "G"],
+  manaCost: 5,
+  year: 2019,
+  archetype: "Weird",
+  salt: 1
+},
+{
+  name: "Horde of Notions",
+  owner: "Arami",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 5,
+  year: 2019,
+  archetype: "Tribal",
+  salt: 1
+},
+{
+  name: "Morophon the Boundless",
+  owner: "Filip",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 7,
+  year: 2019,
+  archetype: "Tribal",
+  salt: 1
+},
+{
+  name: "Mavinda, Students' Advocate",
+  owner: "Filip",
+  colors: ["W"],
+  manaCost: 3,
+  year: 2022,
+  archetype: "Weird",
+  salt: 1
+},
+{
+  name: "Obuun, Mul Daya Ancestor",
+  owner: "William",
+  colors: ["W", "R", "G"],
+  manaCost: 4,
+  year: 2021,
+  archetype: "Midrange",
+  salt: 1
+},
+{
+  name: "Budoka Gardener // Dokai, Weaver of Life",
+  owner: "Noel",
+  colors: ["G"],
+  manaCost: 3,
+  year: 2019,
+  archetype: "Weird",
+  salt: 1
+},
+{
+  name: "Teshar, Ancestor's Apostle",
+  owner: "Filip",
+  colors: ["W"],
+  manaCost: 4,
+  year: 2022,
+  archetype: "Combo",
+  salt: 2
+},
+{
+  name: "Najeela, the Blade-Blossom",
+  owner: "Noel",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 3,
+  year: 2022,
+  archetype: "Combo",
+  salt: 2
+},
+{
+  name: "Inalla, Archmage Ritualist",
+  owner: "Leo",
+  colors: ["U", "B", "R"],
+  manaCost: 5,
+  year: 2023,
+  archetype: "Combo",
+  salt: 2
+},
+{
+  name: "Ixhel, Scion of Atraxa",
+  owner: "Leo",
+  colors: ["W", "B", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Midrange",
+  salt: 2
+},
+{
+  name: "The Scarab God",
+  owner: "V2",
+  colors: ["U", "B"],
+  manaCost: 5,
+  year: 2021,
+  archetype: "Value",
+  salt: 2
+},
+{
+  name: "Rin and Seri, Inseparable",
+  owner: "Filip",
+  colors: ["W", "R", "G"],
+  manaCost: 4,
+  year: 2021,
+  archetype: "Tribal",
+  salt: 2
+},
+{
+  name: "Phenax, God of Deception",
+  owner: "Leo",
+  colors: ["U", "B"],
+  manaCost: 5,
+  year: 2021,
+  archetype: "Mill",
+  salt: 2
+},
+{
+  name: "Korlash, Heir to Blackblade",
+  owner: "Noel",
+  colors: ["B"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Voltron",
+  salt: 2
+},
+{
+  name: "Queen Marchesa",
+  owner: "Richard",
+  colors: ["W", "B", "R"],
+  manaCost: 4,
+  year: 2018,
+  archetype: "Weird",
+  salt: 2
+},
+{
+  name: "Ruby, Daring Tracker",
+  owner: "Noel",
+  colors: ["R", "G"],
+  manaCost: 2,
+  year: 2025,
+  archetype: "Ramp",
+  salt: 2
+},
+{
+  name: "Imotekh the Stormlord",
+  owner: "Noel",
+  colors: ["B"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Combo",
+  salt: 2
+},
+{
+  name: "Grenzo, Dungeon Warden",
+  owner: "V2",
+  colors: ["B", "R"],
+  manaCost: 2,
+  year: 2021,
+  archetype: "Value",
+  salt: 2
+},
+{
+  name: "Rosheen Meanderer",
+  owner: "William",
+  colors: ["R", "G"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Ramp",
+  salt: 2
+},
+{
+  name: "Giada, Font of Hope",
+  owner: "Richard",
+  colors: ["W"],
+  manaCost: 2,
+  year: 2024,
+  archetype: "Tribal",
+  salt: 2
+},
+{
+  name: "Mr. House, President and CEO",
+  owner: "Noel",
+  colors: ["W", "B", "R"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Weird",
+  salt: 2
+},
+{
+  name: "Dennick, Pious Apprentice",
+  owner: "Filip",
+  colors: ["W", "U"],
+  manaCost: 2,
+  year: 2022,
+  archetype: "Mill",
+  salt: 3
+},
+{
+  name: "Hazezon, Shaper of Sand",
+  owner: "Filip",
+  colors: ["W", "R", "G"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 3
+},
+{
+  name: "Cult of Skaro",
+  owner: "Filip",
+  colors: ["U", "B", "R"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Tribal",
+  salt: 3
+},
+{
+  name: "Krenko, Tin Street Kingpin",
+  owner: "Arami",
+  colors: ["R"],
+  manaCost: 3,
+  year: 2022,
+  archetype: "Voltron",
+  salt: 3
+},
+{
+  name: "Oviya Pashiri, Sage Lifecrafter",
+  owner: "Filip",
+  colors: ["G"],
+  manaCost: 1,
+  year: "Current",
+  archetype: "Combo",
+  salt: 3
+},
+{
+  name: "Tayam, Luminous Enigma",
+  owner: "Filip",
+  colors: ["W", "B", "G"],
+  manaCost: 4,
+  year: 2022,
+  archetype: "Combo",
+  salt: 3
+},
+{
+  name: "Selvala, Heart of the Wilds",
+  owner: "Richard",
+  colors: ["G"],
+  manaCost: 3,
+  year: 2021,
+  archetype: "Combo",
+  salt: 3
+},
+{
+  name: "The Ur-Dragon",
+  owner: "Ben",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 9,
+  year: 2021,
+  archetype: "Tribal",
+  salt: 3
+},
+{
+  name: "Kruphix, God of Horizons",
+  owner: "Filip",
+  colors: ["U", "G"],
+  manaCost: 5,
+  year: 2019,
+  archetype: "Ramp",
+  salt: 3
+},
+{
+  name: "Kykar, Wind's Fury",
+  owner: "Filip",
+  colors: ["W", "U", "R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Spellslinger",
+  salt: 3
+},
+{
+  name: "Hallar, the Firefletcher",
+  owner: "Filip",
+  colors: ["R", "G"],
+  manaCost: 3,
+  year: 2021,
+  archetype: "Weird",
+  salt: 3
+},
+{
+  name: "Pako, Arcane Retriever // Haldan, Avid Arcanist",
+  owner: "Richard",
+  colors: ["U", "R", "G"],
+  manaCost: 8,
+  year: "Current",
+  archetype: "Voltron",
+  salt: 3
+},
+{
+  name: "Mishra, Claimed by Gix",
+  owner: "Filip",
+  colors: ["U", "B", "R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 3
+},
+{
+  name: "Colfenor, the Last Yew",
+  owner: "Filip",
+  colors: ["W", "B", "G"],
+  manaCost: 6,
+  year: 2021,
+  archetype: "Combo",
+  salt: 3
+},
+{
+  name: "Shiko and Narset, Unified",
+  owner: "Noel",
+  colors: ["W", "U", "R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Spellslinger",
+  salt: 3
+},
+{
+  name: "Atla Pelani, Nest Tender",
+  owner: "Noel",
+  colors: ["W", "R", "G"],
+  manaCost: 4,
+  year: 2021,
+  archetype: "Value",
+  salt: 3
+},
+{
+  name: "Arahbo, Roar of the World",
+  owner: "Filip",
+  colors: ["W", "G"],
+  manaCost: 5,
+  year: 2024,
+  archetype: "Tribal",
+  salt: 3
+},
+{
+  name: "Alela, Artful Provocateur",
+  owner: "William",
+  colors: ["W", "U", "B"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Tribal",
+  salt: 3
+},
+{
+  name: "Ranar, the Ever-Watchful",
+  owner: "Filip",
+  colors: ["W", "U"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Control",
+  salt: 3
+},
+{
+  name: "Marisi, Breaker of the Coil",
+  owner: "Richard",
+  colors: ["W", "R", "G"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Weird",
+  salt: 3
+},
+{
+  name: "Magar of the Magic Strings",
+  owner: "Tobbe",
+  colors: ["B", "R"],
+  manaCost: 3,
+  year: 2023,
+  archetype: "Weird",
+  salt: 3
+},
+{
+  name: "Phelddagrif",
+  owner: "Julius",
+  colors: ["W", "U", "G"],
+  manaCost: 4,
+  year: 2019,
+  archetype: "Weird",
+  salt: 3
+},
+{
+  name: "Toby, Beastie Befriender",
+  owner: "Tobbe",
+  colors: ["W"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 4
+},
+{
+  name: "Sauron, the Dark Lord",
+  owner: "Tobbe",
+  colors: ["U", "B", "R"],
+  manaCost: 6,
+  year: 2025,
+  archetype: "Control",
+  salt: 4
+},
+{
+  name: "Omo, Queen of Vesuva",
+  owner: "Leo",
+  colors: ["U", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Weird",
+  salt: 4
+},
+{
+  name: "Gluntch, the Bestower",
+  owner: "Filip",
+  colors: ["W", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Ramp",
+  salt: 4
+},
+{
+  name: "Yarok, the Desecrated",
+  owner: "Leo",
+  colors: ["U", "B", "G"],
+  manaCost: 5,
+  year: 2021,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Raffine, Scheming Seer",
+  owner: "Tobbe",
+  colors: ["W", "U", "B"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Hapatra, Vizier of Poisons",
+  owner: "V2",
+  colors: ["B", "G"],
+  manaCost: 2,
+  year: 2021,
+  archetype: "Control",
+  salt: 4
+},
+{
+  name: "Torbran, Thane of Red Fell",
+  owner: "Julius",
+  colors: ["R"],
+  manaCost: 4,
+  year: 2019,
+  archetype: "Aggro",
+  salt: 4
+},
+{
+  name: "Emry, Lurker of the Loch",
+  owner: "Noel",
+  colors: ["U"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Combo",
+  salt: 4
+},
+{
+  name: "Shirokai, Genesis Engine",
+  owner: "Noel",
+  colors: ["W", "U"],
+  manaCost: 4,
+  year: 2023,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Jorn, God of Winter",
+  owner: "Filip",
+  colors: ["U", "B", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Ramp",
+  salt: 4
+},
+{
+  name: "Thrun, Breaker of Silence",
+  owner: "Filip",
+  colors: ["G"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Voltron",
+  salt: 4
+},
+{
+  name: "Haktos, the Unscarred",
+  owner: "Filip",
+  colors: ["W", "R"],
+  manaCost: 4,
+  year: 2021,
+  archetype: "Voltron",
+  salt: 4
+},
+{
+  name: "Riku of Two Reflections",
+  owner: "Filip",
+  colors: ["U", "R", "G"],
+  manaCost: 5,
+  year: 2025,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Imoti, Celebrant of Bounty",
+  owner: "William",
+  colors: ["U", "G"],
+  manaCost: 5,
+  year: 2024,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Maelstrom Wanderer",
+  owner: "Tobbe",
+  colors: ["U", "R", "G"],
+  manaCost: 8,
+  year: 2025,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Marwyn, the Nurturer",
+  owner: "Noel",
+  colors: ["G"],
+  manaCost: 3,
+  year: 2019,
+  archetype: "Tribal",
+  salt: 4
+},
+{
+  name: "Saheeli, Radiant Creator",
+  owner: "Jonna",
+  colors: ["U", "R", "G"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Abdel Adrian, Gorion's Ward // Candlekeep Sage",
+  owner: "Richard",
+  colors: ["W", "U"],
+  manaCost: 8,
+  year: 2025,
+  archetype: "Combo",
+  salt: 4
+},
+{
+  name: "Baba Lysaga, Night Witch",
+  owner: "Noel",
+  colors: ["B", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Ellivere of the Wild Court",
+  owner: "Richard",
+  colors: ["W", "G"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Aggro",
+  salt: 4
+},
+{
+  name: "Elminster",
+  owner: "Richard",
+  colors: ["W", "U"],
+  manaCost: 5,
+  year: 2024,
+  archetype: "Control",
+  salt: 4
+},
+{
+  name: "Adeline, Resplendent Cathar",
+  owner: "Filip",
+  colors: ["W"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Aggro",
+  salt: 4
+},
+{
+  name: "Leonardo da Vinci",
+  owner: "Leo",
+  colors: ["U"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Weird",
+  salt: 4
+},
+{
+  name: "Ugin, Eye of the Storm",
+  owner: "Filip",
+  colors: [],
+  manaCost: 7,
+  year: "Current",
+  archetype: "Ramp",
+  salt: 5
+},
+{
+  name: "Hokori, Dust Drinker",
+  owner: "Filip",
+  colors: ["W"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Control",
+  salt: 5
+},
+{
+  name: "Karador, Ghost Chieftain",
+  owner: "Filip",
+  colors: ["W", "B", "G"],
+  manaCost: 8,
+  year: 2025,
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Fynn, the Fangbearer",
+  owner: "Filip",
+  colors: ["G"],
+  manaCost: 2,
+  year: 2024,
+  archetype: "Aggro",
+  salt: 5
+},
+{
+  name: "Gix, Yawgmoth Praetor",
+  owner: "Noel",
+  colors: ["B"],
+  manaCost: 3,
+  year: 2023,
+  archetype: "Midrange",
+  salt: 5
+},
+{
+  name: "Xenagos, God of Revels",
+  owner: "Filip",
+  colors: ["R", "G"],
+  manaCost: 5,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 5
+},
+{
+  name: "Nelly Borca, Impulsive Accuser",
+  owner: "Richard",
+  colors: ["W", "R"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Weird",
+  salt: 5
+},
+{
+  name: "Mårran",
+  owner: "Filip",
+  colors: ["W", "U", "B"],
+  manaCost: 5,
+  year: 2025,
+  archetype: "Control",
+  salt: 5
+},
+{
+  name: "Ruric Thar, the Unbowed",
+  owner: "Filip",
+  colors: ["R", "G"],
+  manaCost: 6,
+  year: 2024,
+  archetype: "Midrange",
+  salt: 5
+},
+{
+  name: "Omnath, Locus of Creation",
+  owner: "Noel",
+  colors: ["W", "U", "R", "G"],
+  manaCost: 4,
+  year: 2023,
+  archetype: "Value",
+  salt: 5
+},
+{
+  name: "Dihada, Binder of Wills",
+  owner: "Noel",
+  colors: ["W", "B", "R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Aggro",
+  salt: 5
+},
+{
+  name: "Chatterfang, Squirrel General",
+  owner: "Noel",
+  colors: ["B", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Midrange",
+  salt: 5
+},
+{
+  name: "Henzie Toolbox Torre",
+  owner: "Richard",
+  colors: ["B", "R", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Value",
+  salt: 5
+},
+{
+  name: "Lord Windgrace",
+  owner: "Filip",
+  colors: ["B", "R", "G"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Control",
+  salt: 5
+},
+{
+  name: "Zndrsplt, Eye of Wisdom // Okaun, Eye of Chaos",
+  owner: "Tobbe",
+  colors: ["U", "R"],
+  manaCost: 10,
+  year: 2024,
+  archetype: "Value",
+  salt: 5
+},
+{
+  name: "Orvar, the All-Form",
+  owner: "Noel",
+  colors: ["U"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Combo",
+  salt: 5
+},
+{
+  name: "Vilis, Broker of Blood",
+  owner: "Filip",
+  colors: ["B"],
+  manaCost: 8,
+  year: 2019,
+  archetype: "Combo",
+  salt: 5
+},
+{
+  name: "Chainer, Dementia Master",
+  owner: "Tobbe",
+  colors: ["B"],
+  manaCost: 5,
+  year: 2023,
+  archetype: "Value",
+  salt: 5
+},
+{
+  name: "Zhulodok, Void Gorger",
+  owner: "Filip",
+  colors: [],
+  manaCost: 6,
+  year: 2025,
+  archetype: "Ramp",
+  salt: 5
+},
+{
+  name: "Zacama, Primal Calamity",
+  owner: "Filip",
+  colors: ["W", "R", "G"],
+  manaCost: 9,
+  year: "Current",
+  archetype: "Ramp",
+  salt: 5
+},
+{
+  name: "Captain America, First Avenger",
+  owner: "Tobbe",
+  colors: ["W", "U", "R"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Voltron",
+  salt: 5
+},
+{
+  name: "Derevi, Empyrial Tactician",
+  owner: "Noel",
+  colors: ["W", "U", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Value",
+  salt: 5
+},
+{
+  name: "Etali, Primal Conqueror",
+  owner: "Noel",
+  colors: ["R", "G"],
+  manaCost: 7,
+  year: 2025,
+  archetype: "Ramp",
+  salt: 5
+},
+{
+  name: "Jodah, Archmage Eternal",
+  owner: "Noel",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 4,
+  year: 2019,
+  archetype: "Ramp",
+  salt: 5
+},
+{
+  name: "Mishra, Artificer Prodigy",
+  owner: "Filip",
+  colors: ["U", "B", "R"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Weird",
+  salt: 5
+},
+{
+  name: "Galadriel, Light of Valanor",
+  owner: "Richard",
+  colors: ["W", "U", "G"],
+  manaCost: 5,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 5
+},
+{
+  name: "Mishra, Eminent One",
+  owner: "Tobbe",
+  colors: ["U", "B", "R"],
+  manaCost: 5,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 5
+},
+{
+  name: "Clement, the Worrywort",
+  owner: "Filip",
+  colors: ["U", "G"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Combo",
+  salt: 6
+},
+{
+  name: "Krenko, Mob Boss",
+  owner: "Leo",
+  colors: ["R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Tribal",
+  salt: 6
+},
+{
+  name: "Extus, Oriq Overlord // Awaken the Blood Avatar",
+  owner: "Tobbe",
+  colors: ["W", "B", "R"],
+  manaCost: 12,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 6
+},
+{
+  name: "The Gitrog Monster",
+  owner: "Noel",
+  colors: ["B", "G"],
+  manaCost: 5,
+  year: 2024,
+  archetype: "Combo",
+  salt: 6
+},
+{
+  name: "Niv-Mizzet, Parun",
+  owner: "Ben",
+  colors: ["U", "R"],
+  manaCost: 6,
+  year: 2021,
+  archetype: "Spellslinger",
+  salt: 6
+},
+{
+  name: "Safana, Calimport Cutthroat // Dungeon Delver",
+  owner: "Richard",
+  colors: ["U", "B"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Yuriko, Tiger's Shadow",
+  owner: "Julius",
+  colors: ["U", "B"],
+  manaCost: 2,
+  year: 2024,
+  archetype: "Aggro",
+  salt: 6
+},
+{
+  name: "Glissa, the Traitor",
+  owner: "Noel",
+  colors: ["B", "G"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Weird",
+  salt: 6
+},
+{
+  name: "Six",
+  owner: "Noel",
+  colors: ["G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Combo",
+  salt: 6
+},
+{
+  name: "Ratadrabik of Urborg",
+  owner: "Noel",
+  colors: ["W", "B"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Sergeant John Benton",
+  owner: "Richard",
+  colors: ["W", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Voltron",
+  salt: 6
+},
+{
+  name: "Jodah the Unifier",
+  owner: "Leo",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "The First Sliver",
+  owner: "Arami",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 5,
+  year: 2021,
+  archetype: "Tribal",
+  salt: 6
+},
+{
+  name: "Captain Sisay",
+  owner: "Noel",
+  colors: ["W", "G"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Urza, Lord High Artificer",
+  owner: "Tobbe",
+  colors: ["U"],
+  manaCost: 4,
+  year: 2023,
+  archetype: "Combo",
+  salt: 6
+},
+{
+  name: "Prosper, Tome-Bound",
+  owner: "Noel",
+  colors: ["B", "R"],
+  manaCost: 4,
+  year: 2023,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Atraxa, Praetors' Voice",
+  owner: "Noel",
+  colors: ["W", "U", "B", "G"],
+  manaCost: 4,
+  year: 2021,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Kambal, Profiteering Mayor",
+  owner: "Tobbe",
+  colors: ["W", "B"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Sab-Sunen, Luxa Embodied",
+  owner: "Richard",
+  colors: ["U", "G"],
+  manaCost: 5,
+  year: 2025,
+  archetype: "Voltron",
+  salt: 6
+},
+{
+  name: "Liliana, Heretical Healer",
+  owner: "William",
+  colors: ["B"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Control",
+  salt: 6
+},
+{
+  name: "Neyith of the Dire Hunt",
+  owner: "Noel",
+  colors: ["R", "G"],
+  manaCost: 4,
+  year: 2022,
+  archetype: "Midrange",
+  salt: 6
+},
+{
+  name: "Galadriel of Lothlorien",
+  owner: "Jonna",
+  colors: ["U", "G"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Arcades, the Strategist",
+  owner: "Erik",
+  colors: ["W", "U", "G"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Midrange",
+  salt: 6
+},
+{
+  name: "Aminatou, the Fateshifter",
+  owner: "Noel",
+  colors: ["W", "U", "B"],
+  manaCost: 3,
+  year: 2019,
+  archetype: "Control",
+  salt: 6
+},
+{
+  name: "Teysa Karlov",
+  owner: "Leo",
+  colors: ["W", "B"],
+  manaCost: 4,
+  year: 2019,
+  archetype: "Midrange",
+  salt: 6
+},
+{
+  name: "Godo, Bandit Warlord",
+  owner: "Arami",
+  colors: ["R"],
+  manaCost: 6,
+  year: 2021,
+  archetype: "Combo",
+  salt: 6
+},
+{
+  name: "Storm, Force of Nature",
+  owner: "Noel",
+  colors: ["U", "R", "G"],
+  manaCost: 44,
+  year: 2025,
+  archetype: "Spellslinger",
+  salt: 6
+},
+{
+  name: "Ral, Monsoon Mage",
+  owner: "Noel",
+  colors: ["U", "R"],
+  manaCost: 2,
+  year: 2025,
+  archetype: "Spellslinger",
+  salt: 6
+},
+{
+  name: "Ghired, Mirror of the Wilds",
+  owner: "Erik",
+  colors: ["W", "R", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Combo",
+  salt: 6
+},
+{
+  name: "Winota, Joiner of Forces",
+  owner: "Richard",
+  colors: ["W", "R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Aggro",
+  salt: 6
+},
+{
+  name: "Braids, Arisen Nightmare",
+  owner: "Tobbe",
+  colors: ["B"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Meren of Clan Nel Toth",
+  owner: "Tobbe",
+  colors: ["B", "G"],
+  manaCost: 4,
+  year: 2023,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Niv-Mizzet Reborn",
+  owner: "Leo",
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 5,
+  year: 2021,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Norin the Wary",
+  owner: "Arami",
+  colors: ["R"],
+  manaCost: 1,
+  year: 2019,
+  archetype: "Weird",
+  salt: 7
+},
+{
+  name: "Uril, the Miststalker",
+  owner: "Arami",
+  colors: ["W", "R", "G"],
+  manaCost: 5,
+  year: 2019,
+  archetype: "Voltron",
+  salt: 7
+},
+{
+  name: "Negan, the Cold-Blooded",
+  owner: "Filip",
+  colors: ["W", "B", "R"],
+  manaCost: 5,
+  year: 2022,
+  archetype: "Control",
+  salt: 7
+},
+{
+  name: "Feather, the Redeemed",
+  owner: "Richard",
+  colors: ["W", "R"],
+  manaCost: 3,
+  year: 2022,
+  archetype: "Weird",
+  salt: 7
+},
+{
+  name: "Tuvasa the Sunlit",
+  owner: "Richard",
+  colors: ["W", "U", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Value",
+  salt: 7
+},
+{
+  name: "Shu Yun, the Silent Tempest",
+  owner: "Julius",
+  colors: ["W", "U", "R"],
+  manaCost: 3,
+  year: 2019,
+  archetype: "Voltron",
+  salt: 7
+},
+{
+  name: "Reyhan, Last of the Abzan // Sakashima of a Thousand Faces",
+  owner: "Noel",
+  colors: ["U", "B", "G"],
+  manaCost: 7,
+  year: 2024,
+  archetype: "Combo",
+  salt: 7
+},
+{
+  name: "Muldrotha, the Gravetide",
+  owner: "Noel",
+  colors: ["U", "B", "G"],
+  manaCost: 6,
+  year: 2019,
+  archetype: "Value",
+  salt: 7
+},
+{
+  name: "Baral, Chief of Compliance",
+  owner: "Filip",
+  colors: ["U"],
+  manaCost: 2,
+  year: 2025,
+  archetype: "Control",
+  salt: 7
+},
+{
+  name: "Marchesa, the Black Rose",
+  owner: "Tobbe",
+  colors: ["W", "B", "R"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 7
+},
+{
+  name: "Nekusar, the Mindrazer",
+  owner: "Noel",
+  colors: ["U", "B", "R"],
+  manaCost: 5,
+  year: 2019,
+  archetype: "Value",
+  salt: 7
+},
+{
+  name: "Nadu, Winged Wisdom",
+  owner: "Filip",
+  colors: ["U", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Combo",
+  salt: 7
+},
+{
+  name: "Slicer, Hired Muscle",
+  owner: "Noel",
+  colors: ["R"],
+  manaCost: 5,
+  year: 2023,
+  archetype: "Aggro",
+  salt: 7
+},
+{
+  name: "Inniaz, the Gale Force",
+  owner: "Filip",
+  colors: ["W", "U"],
+  manaCost: 5,
+  year: 2022,
+  archetype: "Midrange",
+  salt: 7
+},
+{
+  name: "Pramikon, Sky Rampart",
+  owner: "William",
+  colors: ["W", "U", "R"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Control",
+  salt: 5
+},
+{
+  name: "Olivia, Opulent Outlaw",
+  owner: "William",
+  colors: ["W", "B", "R"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Aggro",
+  salt: 2
+},
+{
+  name: "Raff Capashen, Ship's Mage",
+  owner: "Tobbe",
+  colors: ["W", "U"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Control",
+  salt: 3
+},
+{
+  name: "Arixmethes, Slumbering Isle",
+  owner: "William",
+  colors: ["U", "G"],
+  manaCost: 4,
+  year: "Current",
+  archetype: "Tribal",
+  salt: 4
+},
+{
+  name: "Ketramose, the New Dawn",
+  owner: "Filip",
+  colors: ["W", "B"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Control",
+  salt: 5
+},
+{
+  name: "Zur, the Enchanter",
+  owner: "Arami",
+  colors: ["W", "U", "B"],
+  manaCost: 4,
+  year: 2021,
+  archetype: "Voltron",
+  salt: 7
+}
+];
+
+
+    const secret = commanders[Math.floor(Math.random() * commanders.length)];
+
+    const guessedCommanders = [];
+
+    const input = document.getElementById("guessInput");
+    const suggestionsDiv = document.getElementById("suggestions");
+    const tableBody = document.querySelector("#guessTable tbody");
+    const winMessage = document.getElementById("winMessage");
+    const guessButton = document.getElementById("guessButton");
+
+    input.addEventListener("input", showSuggestions);
+
+    function showSuggestions() {
+      const value = input.value.toLowerCase();
+      suggestionsDiv.innerHTML = "";
+      if (!value) return;
+
+      commanders
+        .filter(c => c.name.toLowerCase().startsWith(value))
+        .forEach(match => {
+          const div = document.createElement("div");
+          div.className = "suggestion";
+          div.textContent = match.name;
+          div.onclick = () => {
+            input.value = match.name;
+            suggestionsDiv.innerHTML = "";
+          };
+          suggestionsDiv.appendChild(div);
+        });
+    }
+
+    function compareColors(a, b) {
+      if (a.length === 0 && b.length === 0) return "green";
+      if (a.length === 0 || b.length === 0) return "red";
+
+      const overlap = a.filter(c => b.includes(c));
+      if (overlap.length === 0) return "red";
+      if (overlap.length === a.length && overlap.length === b.length) return "green";
+      return "yellow";
+    }
+
+    function renderColors(colors) {
+  if (!colors || colors.length === 0) return "Colorless";
+  return colors.map(c => manaEmojis[c]).join(" ");
+}
+
+    function compareYear(a, b) {
+      if (a === b) return { color: "green", display: a };
+      if (a === "Current") return { color: "red", display: "↓ Current" };
+      if (b === "Current") return { color: "red", display: "↑ " + a };
+      return a < b
+        ? { color: "red", display: "↑ " + a }
+        : { color: "red", display: "↓ " + a };
+    }
+
+    function compareSalt(a, b) {
+      if (a === b) return { color: "green", display: a };
+      return a < b
+        ? { color: "red", display: "↑ " + a }
+        : { color: "red", display: "↓ " + a };
+    }
+
+    function compareManaCost(a, b) {
+  if (a === b) return { color: "green", display: a };
+  return a < b
+    ? { color: "red", display: "↑ " + a }
+    : { color: "red", display: "↓ " + a };
+}
+
+
+    function makeGuess() {
+      const guessName = input.value.trim();
+      input.value = "";
+      suggestionsDiv.innerHTML = "";
+      if (!guessName) return;
+
+        if (guessedCommanders.includes(guessName.toLowerCase())) {
+    alert("You already guessed that commander.");
+    return;
+  }
+
+
+      const guess = commanders.find(
+        c => c.name.toLowerCase() === guessName.toLowerCase()
+      );
+      if (!guess) {
+        alert("Commander not found in list.");
+        return;
+      }
+
+      let isWin = true;
+      const row = document.createElement("tr");
+
+      // Commander
+      row.appendChild(cell(guess.name));
+
+      // Owner
+      isWin &= addCell(row, guess.owner, guess.owner === secret.owner);
+
+      // Colors
+      const colorResult = compareColors(guess.colors, secret.colors);
+      isWin &= addCell(
+        row,
+        renderColors(guess.colors),
+
+        colorResult === "green",
+        colorResult
+      );
+      // Mana Cost
+const manaResult = compareManaCost(guess.manaCost, secret.manaCost);
+isWin &= addCell(row, manaResult.display, manaResult.color === "green");
+
+      // Year
+      const yearResult = compareYear(guess.year, secret.year);
+      isWin &= addCell(row, yearResult.display, yearResult.color === "green");
+
+      // Archetype
+      isWin &= addCell(row, guess.archetype, guess.archetype === secret.archetype);
+
+      // Salt
+      const saltResult = compareSalt(guess.salt, secret.salt);
+      isWin &= addCell(row, saltResult.display, saltResult.color === "green");
+
+      tableBody.appendChild(row);
+      guessedCommanders.push(guess.name.toLowerCase());
+
+      if (isWin) endGame();
+    }
+
+    function cell(text) {
+      const td = document.createElement("td");
+      td.textContent = text;
+      return td;
+    }
+
+    function addCell(row, text, isCorrect, colorOverride) {
+      const td = cell(text);
+      td.className = isCorrect
+        ? "cell-green"
+        : colorOverride === "yellow"
+        ? "cell-yellow"
+        : "cell-red";
+      row.appendChild(td);
+      return isCorrect;
+    }
+
+    function endGame() {
+      winMessage.textContent = "🎉 You got it! Deck guessed correctly!";
+      input.disabled = true;
+      guessButton.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
