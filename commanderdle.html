@@ -117,7 +117,7 @@
     <thead>
       <tr>
         <th>Commander</th>
-        <th>Owner</th>
+        <th>Owner(s)</th>
         <th>Colors</th>
         <th>Mana Cost</th>
         <th>Year</th>
@@ -141,7 +141,8 @@ const manaEmojis = {
 const commanders = [
 {
   name: "Korvold, Fae-Cursed King",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/6/0/607c1793-8e5a-4ebf-87c6-7f9c99bbd29a.jpg?1752944988",
+  owners: ["Leo"],
   colors: ["B", "R", "G"],
   manaCost: 5,
   year: "Current",
@@ -150,7 +151,8 @@ const commanders = [
 },
 {
   name: "Iroh, Grand Lotus",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/8/7/879b73d3-4552-4fdc-baee-c4d097ae9a4f.jpg?1764121663",
+  owners: ["Filip"],
   colors: ["U", "R", "G"],
   manaCost: 6,
   year: "Current",
@@ -159,7 +161,8 @@ const commanders = [
 },
 {
   name: "Vial Smasher the Fierce // Sakashima of a Thousand Faces",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/c/c/cc7be939-2202-40fe-8899-a05682d76190.jpg?1726285276",
+  owners: ["William"],
   colors: ["U", "B", "R"],
   manaCost: 7,
   year: "Current",
@@ -168,7 +171,8 @@ const commanders = [
 },
 {
   name: "Thromok the Insatiable",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/2/4/240f10df-2115-4db3-aab6-731a413e074d.jpg?1562901704",
+  owners: ["Richard"],
   colors: ["R", "G"],
   manaCost: 5,
   year: 2019,
@@ -177,7 +181,8 @@ const commanders = [
 },
 {
   name: "Horde of Notions",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/a/5/a5137c28-632f-40f4-bf9d-877f5f070987.jpg?1562265721",
+  owners: ["Arami"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 5,
   year: 2019,
@@ -186,7 +191,8 @@ const commanders = [
 },
 {
   name: "Morophon the Boundless",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/8/4/84238335-e08c-421c-b9b9-70a679ff2967.jpg?1689995411",
+  owners: ["Filip"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 7,
   year: 2019,
@@ -195,7 +201,8 @@ const commanders = [
 },
 {
   name: "Mavinda, Students' Advocate",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/8/b/8b3d521f-31cd-4bd2-b6b6-771c79252789.jpg?1624589549",
+  owners: ["Filip"],
   colors: ["W"],
   manaCost: 3,
   year: 2022,
@@ -204,7 +211,8 @@ const commanders = [
 },
 {
   name: "Obuun, Mul Daya Ancestor",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/8/3/8319b155-0fba-4d30-9481-bf01afbd3457.jpg?1617522154",
+  owners: ["William"],
   colors: ["W", "R", "G"],
   manaCost: 4,
   year: 2021,
@@ -213,7 +221,8 @@ const commanders = [
 },
 {
   name: "Budoka Gardener // Dokai, Weaver of Life",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/5/8/58164521-aeec-43fc-9db9-d595432dea6f.jpg?1592710828",
+  owners: ["Noel"],
   colors: ["G"],
   manaCost: 3,
   year: 2019,
@@ -222,7 +231,8 @@ const commanders = [
 },
 {
   name: "Teshar, Ancestor's Apostle",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/e/8/e8a9b45b-d466-4c06-9a25-6edb6e8f6f2f.jpg?1690017040",
+  owners: ["Filip"],
   colors: ["W"],
   manaCost: 4,
   year: 2022,
@@ -231,7 +241,8 @@ const commanders = [
 },
 {
   name: "Najeela, the Blade-Blossom",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/2/c/2cb1d1da-6077-46b5-8c63-39882b8016f2.jpg?1567181270",
+  owners: ["Noel"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 3,
   year: 2022,
@@ -240,7 +251,8 @@ const commanders = [
 },
 {
   name: "Inalla, Archmage Ritualist",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/7/c/7c6e803a-451c-4aa6-97a2-400077f32c47.jpg?1627406462",
+  owners: ["Leo", "Noel"],
   colors: ["U", "B", "R"],
   manaCost: 5,
   year: 2023,
@@ -249,7 +261,8 @@ const commanders = [
 },
 {
   name: "Ixhel, Scion of Atraxa",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/a/b/ab866ec4-dcb4-47ef-8de1-a369986609c0.jpg?1738281205",
+  owners: ["Leo"],
   colors: ["W", "B", "G"],
   manaCost: 3,
   year: "Current",
@@ -258,7 +271,8 @@ const commanders = [
 },
 {
   name: "The Scarab God",
-  owner: "V2",
+  image: "https://cards.scryfall.io/large/front/f/4/f4f414ef-84a2-4694-9e98-51bee4576c84.jpg?1689999233",
+  owners: ["V2"],
   colors: ["U", "B"],
   manaCost: 5,
   year: 2021,
@@ -267,7 +281,8 @@ const commanders = [
 },
 {
   name: "Rin and Seri, Inseparable",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/9/9/992b2dd3-87e7-48a4-bd8d-84973ff0ee1f.jpg?1745912080",
+  owners: ["Filip"],
   colors: ["W", "R", "G"],
   manaCost: 4,
   year: 2021,
@@ -276,7 +291,8 @@ const commanders = [
 },
 {
   name: "Phenax, God of Deception",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/8/d/8dfcb129-4665-40e4-b5cb-a79f3f40ae5c.jpg?1593092799",
+  owners: ["Leo"],
   colors: ["U", "B"],
   manaCost: 5,
   year: 2021,
@@ -285,7 +301,8 @@ const commanders = [
 },
 {
   name: "Korlash, Heir to Blackblade",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/3/2/32f1f022-da7f-49a4-881d-b3a2c54c38eb.jpg?1562905288",
+  owners: ["Noel"],
   colors: ["B"],
   manaCost: 4,
   year: 2024,
@@ -294,7 +311,8 @@ const commanders = [
 },
 {
   name: "Queen Marchesa",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/0/f/0fdae05f-7bdc-45fb-b9b9-e5ec3766f965.jpg?1712354769",
+  owners: ["Richard"],
   colors: ["W", "B", "R"],
   manaCost: 4,
   year: 2018,
@@ -303,7 +321,8 @@ const commanders = [
 },
 {
   name: "Ruby, Daring Tracker",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/f/e/fe3e7dd2-b66d-4218-9fde-f84bec26b7bf.jpg?1730489519",
+  owners: ["Noel"],
   colors: ["R", "G"],
   manaCost: 2,
   year: 2025,
@@ -312,7 +331,8 @@ const commanders = [
 },
 {
   name: "Imotekh the Stormlord",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/2/8/286ff901-1faf-4a02-a37a-fa165989112f.jpg?1674058380",
+  owners: ["Noel"],
   colors: ["B"],
   manaCost: 4,
   year: 2024,
@@ -321,7 +341,8 @@ const commanders = [
 },
 {
   name: "Grenzo, Dungeon Warden",
-  owner: "V2",
+  image: "https://cards.scryfall.io/large/front/6/e/6e19c383-88bd-4bde-ac81-c0eb6d5b5bd4.jpg?1562436569",
+  owners: ["V2"],
   colors: ["B", "R"],
   manaCost: 2,
   year: 2021,
@@ -330,7 +351,8 @@ const commanders = [
 },
 {
   name: "Rosheen Meanderer",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/4/7/472efa7f-203f-4c48-b9ad-505e18f2976f.jpg?1562848454",
+  owners: ["William"],
   colors: ["R", "G"],
   manaCost: 4,
   year: "Current",
@@ -339,7 +361,8 @@ const commanders = [
 },
 {
   name: "Giada, Font of Hope",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/8/a/8ae6fc26-cfad-4da8-98d9-49c27c24d293.jpg?1730489128",
+  owners: ["Richard"],
   colors: ["W"],
   manaCost: 2,
   year: 2024,
@@ -348,7 +371,8 @@ const commanders = [
 },
 {
   name: "Mr. House, President and CEO",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/2/3/23eb3cf7-c90d-4bfa-b125-4fbcb5614468.jpg?1710673416",
+  owners: ["Noel"],
   colors: ["W", "B", "R"],
   manaCost: 3,
   year: 2024,
@@ -357,7 +381,8 @@ const commanders = [
 },
 {
   name: "Dennick, Pious Apprentice",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/3/5/35cf2d72-931f-47b1-a1b4-916f0383551a.jpg?1636683976",
+  owners: ["Filip"],
   colors: ["W", "U"],
   manaCost: 2,
   year: 2022,
@@ -366,7 +391,8 @@ const commanders = [
 },
 {
   name: "Hazezon, Shaper of Sand",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/3/7/37dd84b4-0b8d-4303-8405-45e2c144f691.jpg?1712354724",
+  owners: ["Filip"],
   colors: ["W", "R", "G"],
   manaCost: 3,
   year: 2025,
@@ -375,7 +401,8 @@ const commanders = [
 },
 {
   name: "Cult of Skaro",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/3/9/3913111c-6a77-4536-bbb4-0ac5bf18fe53.jpg?1696636685",
+  owners: ["Filip"],
   colors: ["U", "B", "R"],
   manaCost: 4,
   year: "Current",
@@ -384,7 +411,8 @@ const commanders = [
 },
 {
   name: "Krenko, Tin Street Kingpin",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/2/f/2f5689e2-d8a2-442b-8027-f89686adcb67.jpg?1682209400",
+  owners: ["Arami"],
   colors: ["R"],
   manaCost: 3,
   year: 2022,
@@ -393,7 +421,8 @@ const commanders = [
 },
 {
   name: "Oviya Pashiri, Sage Lifecrafter",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/b/7/b7938b15-7585-43fb-897f-a57e820665b3.jpg?1690016897",
+  owners: ["Filip"],
   colors: ["G"],
   manaCost: 1,
   year: "Current",
@@ -402,7 +431,8 @@ const commanders = [
 },
 {
   name: "Tayam, Luminous Enigma",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/0/5/05b837a2-5773-4340-87f9-b4d6a43deb27.jpg?1591234301",
+  owners: ["Filip"],
   colors: ["W", "B", "G"],
   manaCost: 4,
   year: 2022,
@@ -411,7 +441,8 @@ const commanders = [
 },
 {
   name: "Selvala, Heart of the Wilds",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/7/d/7d711cb2-4f34-4792-90d7-2be5d329a347.jpg?1689998846",
+  owners: ["Richard"],
   colors: ["G"],
   manaCost: 3,
   year: 2021,
@@ -420,7 +451,8 @@ const commanders = [
 },
 {
   name: "The Ur-Dragon",
-  owner: "Ben",
+  image: "https://cards.scryfall.io/large/front/1/0/10d42b35-844f-4a64-9981-c6118d45e826.jpg?1689999317",
+  owners: ["Ben"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 9,
   year: 2021,
@@ -429,7 +461,8 @@ const commanders = [
 },
 {
   name: "Kruphix, God of Horizons",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/2/7/27427233-da58-45af-ade8-e0727929efaa.jpg?1593096427",
+  owners: ["Filip"],
   colors: ["U", "G"],
   manaCost: 5,
   year: 2019,
@@ -438,7 +471,8 @@ const commanders = [
 },
 {
   name: "Kykar, Wind's Fury",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/f/d/fdb034c8-bae0-4f66-98f1-1b3cdc072f17.jpg?1689999115",
+  owners: ["Filip"],
   colors: ["W", "U", "R"],
   manaCost: 4,
   year: 2025,
@@ -447,7 +481,8 @@ const commanders = [
 },
 {
   name: "Hallar, the Firefletcher",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/c/8/c896643e-eeef-49a6-a1ca-2577b55af2b0.jpg?1562742764",
+  owners: ["Filip"],
   colors: ["R", "G"],
   manaCost: 3,
   year: 2021,
@@ -456,7 +491,8 @@ const commanders = [
 },
 {
   name: "Pako, Arcane Retriever // Haldan, Avid Arcanist",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/0/6/066c8f63-52e6-475e-8d27-6ee37e92fc05.jpg?1591234280",
+  owners: ["Richard"],
   colors: ["U", "R", "G"],
   manaCost: 8,
   year: "Current",
@@ -465,8 +501,9 @@ const commanders = [
 },
 {
   name: "Mishra, Claimed by Gix",
-  owner: "Filip",
-  colors: ["U", "B", "R"],
+  image: "https://cards.scryfall.io/large/front/a/4/a469d7ec-42de-45de-9d8f-469bb979de58.jpg?1736927322",
+  owners: ["Filip"],
+  colors: ["B", "R"],
   manaCost: 4,
   year: 2025,
   archetype: "Midrange",
@@ -474,7 +511,8 @@ const commanders = [
 },
 {
   name: "Colfenor, the Last Yew",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/a/f/afa3b31a-b52a-43c0-9084-e0535e1bd871.jpg?1608911092",
+  owners: ["Filip"],
   colors: ["W", "B", "G"],
   manaCost: 6,
   year: 2021,
@@ -483,7 +521,8 @@ const commanders = [
 },
 {
   name: "Shiko and Narset, Unified",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/5/a/5a42fc7d-52ac-4e95-9e04-8f8fa7f687c8.jpg?1745970975",
+  owners: ["Noel"],
   colors: ["W", "U", "R"],
   manaCost: 4,
   year: 2025,
@@ -492,7 +531,8 @@ const commanders = [
 },
 {
   name: "Atla Pelani, Nest Tender",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/2/b/2b8414f7-22c3-4e1c-934b-4a0e7acf951d.jpg?1673305450",
+  owners: ["Noel"],
   colors: ["W", "R", "G"],
   manaCost: 4,
   year: 2021,
@@ -501,7 +541,8 @@ const commanders = [
 },
 {
   name: "Arahbo, Roar of the World",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/8/1/81dc3d00-97cd-4549-b5a4-15a1e08767f5.jpg?1567181403",
+  owners: ["Filip"],
   colors: ["W", "G"],
   manaCost: 5,
   year: 2024,
@@ -510,7 +551,8 @@ const commanders = [
 },
 {
   name: "Alela, Artful Provocateur",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/a/b/abc9e41e-fd03-4b6f-8f44-17ba94fa44f5.jpg?1673484923",
+  owners: ["William"],
   colors: ["W", "U", "B"],
   manaCost: 4,
   year: "Current",
@@ -519,7 +561,8 @@ const commanders = [
 },
 {
   name: "Ranar, the Ever-Watchful",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/1/c/1c8c41dd-8551-4ce8-a9be-9b9f65718852.jpg?1704848195",
+  owners: ["Filip"],
   colors: ["W", "U"],
   manaCost: 4,
   year: 2025,
@@ -528,7 +571,8 @@ const commanders = [
 },
 {
   name: "Marisi, Breaker of the Coil",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/c/3/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1568003704",
+  owners: ["Richard"],
   colors: ["W", "R", "G"],
   manaCost: 4,
   year: 2024,
@@ -537,7 +581,8 @@ const commanders = [
 },
 {
   name: "Magar of the Magic Strings",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/a/6/a6f2ba13-cd72-4f7a-8443-8e3962f2ac46.jpg?1682551287",
+  owners: ["Tobbe"],
   colors: ["B", "R"],
   manaCost: 3,
   year: 2023,
@@ -546,7 +591,8 @@ const commanders = [
 },
 {
   name: "Phelddagrif",
-  owner: "Julius",
+  image: "https://cards.scryfall.io/large/front/4/9/493a72f0-2e35-4e06-a1b2-d42d432b9b2c.jpg?1559592591",
+  owners: ["Julius"],
   colors: ["W", "U", "G"],
   manaCost: 4,
   year: 2019,
@@ -555,7 +601,8 @@ const commanders = [
 },
 {
   name: "Toby, Beastie Befriender",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/f/3/f33d3948-fe7b-4c3b-ab67-1022623fbb2b.jpg?1726285986",
+  owners: ["Tobbe"],
   colors: ["W"],
   manaCost: 3,
   year: 2025,
@@ -564,7 +611,8 @@ const commanders = [
 },
 {
   name: "Sauron, the Dark Lord",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/0/3/034e0929-b2c7-4b5f-94f2-8eaf4fb1a2a1.jpg?1693611218",
+  owners: ["Tobbe"],
   colors: ["U", "B", "R"],
   manaCost: 6,
   year: 2025,
@@ -573,7 +621,8 @@ const commanders = [
 },
 {
   name: "Omo, Queen of Vesuva",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/e/5/e5d1c814-4c22-4917-95ae-dffaf491db32.jpg?1727175657",
+  owners: ["Leo"],
   colors: ["U", "G"],
   manaCost: 3,
   year: "Current",
@@ -582,7 +631,8 @@ const commanders = [
 },
 {
   name: "Gluntch, the Bestower",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/3/b/3b3e889a-5865-4464-9923-bffa25c50cd2.jpg?1674137513",
+  owners: ["Filip"],
   colors: ["W", "G"],
   manaCost: 3,
   year: "Current",
@@ -591,7 +641,8 @@ const commanders = [
 },
 {
   name: "Yarok, the Desecrated",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/a/1/a1001d43-e11b-4e5e-acd4-4a50ef89977f.jpg?1722108823",
+  owners: ["Leo"],
   colors: ["U", "B", "G"],
   manaCost: 5,
   year: 2021,
@@ -600,7 +651,8 @@ const commanders = [
 },
 {
   name: "Raffine, Scheming Seer",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/7/1/716a44b4-f6b0-4f14-a270-6442aed3251f.jpg?1711471750",
+  owners: ["Tobbe"],
   colors: ["W", "U", "B"],
   manaCost: 3,
   year: 2025,
@@ -609,7 +661,8 @@ const commanders = [
 },
 {
   name: "Hapatra, Vizier of Poisons",
-  owner: "V2",
+  image: "https://cards.scryfall.io/large/front/5/6/56fbbcc9-db23-4902-b0f7-cea78a2a36af.jpg?1543676055",
+  owners: ["V2"],
   colors: ["B", "G"],
   manaCost: 2,
   year: 2021,
@@ -618,7 +671,8 @@ const commanders = [
 },
 {
   name: "Torbran, Thane of Red Fell",
-  owner: "Julius",
+  image: "https://cards.scryfall.io/large/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1572490491",
+  owners: ["Julius"],
   colors: ["R"],
   manaCost: 4,
   year: 2019,
@@ -627,7 +681,8 @@ const commanders = [
 },
 {
   name: "Emry, Lurker of the Loch",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/c/9/c977d89a-bfd1-4e98-9d95-3e41c53dd188.jpg?1752944590",
+  owners: ["Noel"],
   colors: ["U"],
   manaCost: 3,
   year: 2024,
@@ -635,8 +690,9 @@ const commanders = [
   salt: 4
 },
 {
-  name: "Shirokai, Genesis Engine",
-  owner: "Noel",
+  name: "Shorikai, Genesis Engine",
+  image: "https://cards.scryfall.io/large/front/9/6/969ac7dd-f3aa-4888-9ff0-d16a31b5e7a9.jpg?1763728107",
+  owners: ["Noel"],
   colors: ["W", "U"],
   manaCost: 4,
   year: 2023,
@@ -645,7 +701,8 @@ const commanders = [
 },
 {
   name: "Jorn, God of Winter",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/c/6/c697548f-925b-405e-970a-4e78067d5c8e.jpg?1631050504",
+  owners: ["Filip"],
   colors: ["U", "B", "G"],
   manaCost: 3,
   year: "Current",
@@ -654,7 +711,8 @@ const commanders = [
 },
 {
   name: "Thrun, Breaker of Silence",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/6/d/6d9f51dd-0393-4b3c-bea5-8f74634ab0e5.jpg?1675957167",
+  owners: ["Filip"],
   colors: ["G"],
   manaCost: 5,
   year: "Current",
@@ -663,7 +721,8 @@ const commanders = [
 },
 {
   name: "Haktos, the Unscarred",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/6/f/6fe5cbef-0f4e-4d05-9a94-4739e09d7a9c.jpg?1581481070",
+  owners: ["Filip"],
   colors: ["W", "R"],
   manaCost: 4,
   year: 2021,
@@ -672,7 +731,8 @@ const commanders = [
 },
 {
   name: "Riku of Two Reflections",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/7/0/70dd138f-391a-4956-bc2a-fe186429c71a.jpg?1599708286",
+  owners: ["Filip"],
   colors: ["U", "R", "G"],
   manaCost: 5,
   year: 2025,
@@ -681,7 +741,8 @@ const commanders = [
 },
 {
   name: "Imoti, Celebrant of Bounty",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/8/a/8afceb13-877a-4256-9ba6-851b6924ffd9.jpg?1608911148",
+  owners: ["William"],
   colors: ["U", "G"],
   manaCost: 5,
   year: 2024,
@@ -690,7 +751,8 @@ const commanders = [
 },
 {
   name: "Maelstrom Wanderer",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/a/4/a49c58b3-180f-420b-b091-114fda000360.jpg?1689999126",
+  owners: ["Tobbe"],
   colors: ["U", "R", "G"],
   manaCost: 8,
   year: 2025,
@@ -699,7 +761,8 @@ const commanders = [
 },
 {
   name: "Marwyn, the Nurturer",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/a/a/aad61d99-5c8e-47b7-ab1a-e70905f59205.jpg?1631235039",
+  owners: ["Noel"],
   colors: ["G"],
   manaCost: 3,
   year: 2019,
@@ -708,7 +771,8 @@ const commanders = [
 },
 {
   name: "Saheeli, Radiant Creator",
-  owner: "Jonna",
+  image: "https://cards.scryfall.io/large/front/5/f/5fea0781-e933-47ef-9414-92c8652a7778.jpg?1747231838",
+  owners: ["Jonna"],
   colors: ["U", "R", "G"],
   manaCost: 4,
   year: "Current",
@@ -717,7 +781,8 @@ const commanders = [
 },
 {
   name: "Abdel Adrian, Gorion's Ward // Candlekeep Sage",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/3/9/396f9198-67b6-45d8-91b4-dc853bff9623.jpg?1674134856",
+  owners: ["Richard"],
   colors: ["W", "U"],
   manaCost: 8,
   year: 2025,
@@ -726,7 +791,8 @@ const commanders = [
 },
 {
   name: "Baba Lysaga, Night Witch",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/2/e/2ef42c3f-f22e-4e99-adb0-9e8f8d442347.jpg?1674137411",
+  owners: ["Noel"],
   colors: ["B", "G"],
   manaCost: 3,
   year: 2024,
@@ -735,7 +801,8 @@ const commanders = [
 },
 {
   name: "Ellivere of the Wild Court",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/4/5/45851394-b8f3-4713-8239-afcb387d47c5.jpg?1692933623",
+  owners: ["Richard"],
   colors: ["W", "G"],
   manaCost: 4,
   year: "Current",
@@ -744,7 +811,8 @@ const commanders = [
 },
 {
   name: "Elminster",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/4/e/4eac2b49-6cb6-4ff4-8fac-2ba669326640.jpg?1674137504",
+  owners: ["Richard"],
   colors: ["W", "U"],
   manaCost: 5,
   year: 2024,
@@ -753,7 +821,8 @@ const commanders = [
 },
 {
   name: "Adeline, Resplendent Cathar",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/1/d/1de30c12-2011-495a-be25-f7a46b23e142.jpg?1743206101",
+  owners: ["Filip"],
   colors: ["W"],
   manaCost: 3,
   year: 2025,
@@ -762,7 +831,8 @@ const commanders = [
 },
 {
   name: "Leonardo da Vinci",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/2/8/283d04a5-3639-42de-b940-ffa7e609e527.jpg?1721423712",
+  owners: ["Leo"],
   colors: ["U"],
   manaCost: 3,
   year: "Current",
@@ -771,7 +841,8 @@ const commanders = [
 },
 {
   name: "Ugin, Eye of the Storm",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/6/4/64a5d494-efa1-446b-bebe-2ad36e154376.jpg?1761770162",
+  owners: ["Filip"],
   colors: [],
   manaCost: 7,
   year: "Current",
@@ -780,7 +851,8 @@ const commanders = [
 },
 {
   name: "Hokori, Dust Drinker",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/5/a/5a03f5d5-d5c3-4a7d-8d44-e60b498b4ed5.jpg?1562877197",
+  owners: ["Filip"],
   colors: ["W"],
   manaCost: 4,
   year: "Current",
@@ -789,7 +861,8 @@ const commanders = [
 },
 {
   name: "Karador, Ghost Chieftain",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/8/d/8d128887-13fb-4e54-90f2-d3c46b7b29d7.jpg?1702369890",
+  owners: ["Filip"],
   colors: ["W", "B", "G"],
   manaCost: 8,
   year: 2025,
@@ -798,7 +871,8 @@ const commanders = [
 },
 {
   name: "Fynn, the Fangbearer",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/6/9/699efb9e-2649-432b-8b2d-10775114c314.jpg?1730491013",
+  owners: ["Filip"],
   colors: ["G"],
   manaCost: 2,
   year: 2024,
@@ -807,7 +881,8 @@ const commanders = [
 },
 {
   name: "Gix, Yawgmoth Praetor",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/1/3/135c5948-4c95-4f24-b648-eda55ab637c8.jpg?1743206495",
+  owners: ["Noel"],
   colors: ["B"],
   manaCost: 3,
   year: 2023,
@@ -816,7 +891,8 @@ const commanders = [
 },
 {
   name: "Xenagos, God of Revels",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/6/f/6f1bc3bb-46da-492a-850c-f1f588ad8d18.jpg?1732546037",
+  owners: ["Filip"],
   colors: ["R", "G"],
   manaCost: 5,
   year: 2025,
@@ -825,7 +901,8 @@ const commanders = [
 },
 {
   name: "Nelly Borca, Impulsive Accuser",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/2/e/2ef59aa9-f5e1-413a-869b-d287db95efd0.jpg?1706448880",
+  owners: ["Richard"],
   colors: ["W", "R"],
   manaCost: 4,
   year: "Current",
@@ -834,7 +911,8 @@ const commanders = [
 },
 {
   name: "Mårran",
-  owner: "Filip",
+  image: "https://static.wikia.nocookie.net/villains/images/8/80/M%C3%A5rranHufsaBukaM%C3%B6rk%C3%B6GrokeToveJanssonArt.png/revision/latest?cb=20210212212557",
+  owners: ["Filip"],
   colors: ["W", "U", "B"],
   manaCost: 5,
   year: 2025,
@@ -843,7 +921,8 @@ const commanders = [
 },
 {
   name: "Ruric Thar, the Unbowed",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/a/a/aa828bdc-221e-4e81-9e71-6f288690ddcd.jpg?1673149099",
+  owners: ["Filip"],
   colors: ["R", "G"],
   manaCost: 6,
   year: 2024,
@@ -852,7 +931,8 @@ const commanders = [
 },
 {
   name: "Omnath, Locus of Creation",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/4/e/4e4fb50c-a81f-44d3-93c5-fa9a0b37f617.jpg?1639436752",
+  owners: ["Noel"],
   colors: ["W", "U", "R", "G"],
   manaCost: 4,
   year: 2023,
@@ -861,7 +941,8 @@ const commanders = [
 },
 {
   name: "Dihada, Binder of Wills",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/d/d/ddeb54d6-a600-42b9-98df-20f8d58caed8.jpg?1685554091",
+  owners: ["Noel"],
   colors: ["W", "B", "R"],
   manaCost: 4,
   year: 2025,
@@ -870,7 +951,8 @@ const commanders = [
 },
 {
   name: "Chatterfang, Squirrel General",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/1/7/1785cf85-1ac0-4246-9b89-1a8221a8e1b2.jpg?1626097239",
+  owners: ["Noel"],
   colors: ["B", "G"],
   manaCost: 3,
   year: 2024,
@@ -879,7 +961,8 @@ const commanders = [
 },
 {
   name: "Henzie Toolbox Torre",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/e/e/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1673481644",
+  owners: ["Richard"],
   colors: ["B", "R", "G"],
   manaCost: 3,
   year: "Current",
@@ -888,7 +971,8 @@ const commanders = [
 },
 {
   name: "Lord Windgrace",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/2/1/213d6fb8-5624-4804-b263-51f339482754.jpg?1592710275",
+  owners: ["Filip"],
   colors: ["B", "R", "G"],
   manaCost: 5,
   year: "Current",
@@ -897,7 +981,8 @@ const commanders = [
 },
 {
   name: "Zndrsplt, Eye of Wisdom // Okaun, Eye of Chaos",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/7/6/76c33402-a022-4d2f-9a83-4b8ddc04e971.jpg?1562918785",
+  owners: ["Tobbe"],
   colors: ["U", "R"],
   manaCost: 10,
   year: 2024,
@@ -906,7 +991,8 @@ const commanders = [
 },
 {
   name: "Orvar, the All-Form",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/7/f/7f36775e-9e48-49cc-a771-d58481712edc.jpg?1631047424",
+  owners: ["Noel"],
   colors: ["U"],
   manaCost: 4,
   year: 2024,
@@ -915,7 +1001,8 @@ const commanders = [
 },
 {
   name: "Vilis, Broker of Blood",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/e/c/ecdf2bd9-87b9-470a-ad2e-0ebf98560f87.jpg?1592516819",
+  owners: ["Filip"],
   colors: ["B"],
   manaCost: 8,
   year: 2019,
@@ -924,7 +1011,8 @@ const commanders = [
 },
 {
   name: "Chainer, Dementia Master",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/1/8/186c30e6-2b84-415d-83e4-ecddaeb11ca1.jpg?1689996964",
+  owners: ["Tobbe"],
   colors: ["B"],
   manaCost: 5,
   year: 2023,
@@ -933,7 +1021,8 @@ const commanders = [
 },
 {
   name: "Zhulodok, Void Gorger",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/a/0/a015461d-4214-4feb-8b04-519c537759eb.jpg?1691500689",
+  owners: ["Filip"],
   colors: [],
   manaCost: 6,
   year: 2025,
@@ -942,7 +1031,8 @@ const commanders = [
 },
 {
   name: "Zacama, Primal Calamity",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/0/5/05c5a9a8-badd-43ab-8408-a13e75407681.jpg?1755609538",
+  owners: ["Filip"],
   colors: ["W", "R", "G"],
   manaCost: 9,
   year: "Current",
@@ -951,7 +1041,8 @@ const commanders = [
 },
 {
   name: "Captain America, First Avenger",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/b/b/bba7e9c8-c24c-4bd3-b398-fe42b1fcfb5d.jpg?1730758326",
+  owners: ["Tobbe"],
   colors: ["W", "U", "R"],
   manaCost: 3,
   year: 2025,
@@ -960,7 +1051,8 @@ const commanders = [
 },
 {
   name: "Derevi, Empyrial Tactician",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/3/a/3a1d0dad-18a8-489e-ac11-08f64b72fda4.jpg?1592673365",
+  owners: ["Noel"],
   colors: ["W", "U", "G"],
   manaCost: 3,
   year: 2024,
@@ -969,7 +1061,8 @@ const commanders = [
 },
 {
   name: "Etali, Primal Conqueror",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/9/5/95c14c4d-6c16-4826-8d93-d89ad04aee09.jpg?1739657577",
+  owners: ["Filip", "Noel"],
   colors: ["R", "G"],
   manaCost: 7,
   year: 2025,
@@ -978,7 +1071,8 @@ const commanders = [
 },
 {
   name: "Jodah, Archmage Eternal",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/7/3/73c18cb4-96b1-4af2-912e-974e22877ede.jpg?1673148799",
+  owners: ["Noel"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 4,
   year: 2019,
@@ -987,7 +1081,8 @@ const commanders = [
 },
 {
   name: "Mishra, Artificer Prodigy",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/d/5/d5deaec5-499d-4e19-b879-8bcd1dc35f3e.jpg?1562940254",
+  owners: ["Filip"],
   colors: ["U", "B", "R"],
   manaCost: 4,
   year: 2024,
@@ -996,7 +1091,8 @@ const commanders = [
 },
 {
   name: "Galadriel, Light of Valanor",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/f/4/f485596f-3a23-4714-ad7e-4c493ab1b530.jpg?1695428241",
+  owners: ["Richard"],
   colors: ["W", "U", "G"],
   manaCost: 5,
   year: 2025,
@@ -1005,7 +1101,8 @@ const commanders = [
 },
 {
   name: "Mishra, Eminent One",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/7/f/7f5b1daa-ec45-48de-9496-6ca5b491a0dc.jpg?1705542701",
+  owners: ["Tobbe"],
   colors: ["U", "B", "R"],
   manaCost: 5,
   year: 2025,
@@ -1014,7 +1111,8 @@ const commanders = [
 },
 {
   name: "Clement, the Worrywort",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/7/0/7028130c-c91d-4bf7-b0b0-450f71107d7a.jpg?1721427029",
+  owners: ["Filip"],
   colors: ["U", "G"],
   manaCost: 3,
   year: 2025,
@@ -1023,7 +1121,8 @@ const commanders = [
 },
 {
   name: "Krenko, Mob Boss",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/8/2/824b2d73-2151-4e5e-9f05-8f63e2bdcaa9.jpg?1730632010",
+  owners: ["Leo"],
   colors: ["R"],
   manaCost: 4,
   year: 2025,
@@ -1032,7 +1131,8 @@ const commanders = [
 },
 {
   name: "Extus, Oriq Overlord // Awaken the Blood Avatar",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/b/a/ba09360a-067e-48a5-bdc5-a19fd066a785.jpg?1624593379",
+  owners: ["Tobbe"],
   colors: ["W", "B", "R"],
   manaCost: 12,
   year: 2025,
@@ -1041,7 +1141,8 @@ const commanders = [
 },
 {
   name: "The Gitrog Monster",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/4/0/40489e28-878d-44a2-847f-07beef1aa0f8.jpg?1752944964",
+  owners: ["Noel"],
   colors: ["B", "G"],
   manaCost: 5,
   year: 2024,
@@ -1050,7 +1151,8 @@ const commanders = [
 },
 {
   name: "Niv-Mizzet, Parun",
-  owner: "Ben",
+  image: "https://cards.scryfall.io/large/front/8/6/86c5c337-d25f-4c3e-9762-09ed0c2d36d7.jpg?1712354750",
+  owners: ["Ben"],
   colors: ["U", "R"],
   manaCost: 6,
   year: 2021,
@@ -1059,7 +1161,8 @@ const commanders = [
 },
 {
   name: "Safana, Calimport Cutthroat // Dungeon Delver",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/e/9/e9367f66-6556-459c-a43d-5ba7a84b568d.jpg?1674136257",
+  owners: ["Richard"],
   colors: ["U", "B"],
   manaCost: 5,
   year: "Current",
@@ -1068,7 +1171,8 @@ const commanders = [
 },
 {
   name: "Yuriko, Tiger's Shadow",
-  owner: "Julius",
+  image: "https://cards.scryfall.io/large/front/f/e/fe9be3e0-076c-4703-9750-2a6b0a178bc9.jpg?1761053654",
+  owners: ["Julius", "Noel"],
   colors: ["U", "B"],
   manaCost: 2,
   year: 2024,
@@ -1077,7 +1181,8 @@ const commanders = [
 },
 {
   name: "Glissa, the Traitor",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/7/5/755e0fbf-4f00-4b05-a535-27e78e96d6b6.jpg?1562612302",
+  owners: ["Noel"],
   colors: ["B", "G"],
   manaCost: 3,
   year: 2025,
@@ -1086,7 +1191,8 @@ const commanders = [
 },
 {
   name: "Six",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/f/9/f9246b68-580f-4f53-883d-7900880e4b0d.jpg?1717012579",
+  owners: ["Noel"],
   colors: ["G"],
   manaCost: 3,
   year: 2024,
@@ -1095,7 +1201,8 @@ const commanders = [
 },
 {
   name: "Ratadrabik of Urborg",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/9/3/9315812d-03e8-4eb4-a693-e7adf281f7fb.jpg?1673308046",
+  owners: ["Noel"],
   colors: ["W", "B"],
   manaCost: 4,
   year: 2024,
@@ -1104,7 +1211,8 @@ const commanders = [
 },
 {
   name: "Sergeant John Benton",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/0/1/01f40e07-f565-4b9e-87a5-5b28b4e9fb0b.jpg?1696636767",
+  owners: ["Richard"],
   colors: ["W", "G"],
   manaCost: 3,
   year: 2024,
@@ -1113,7 +1221,8 @@ const commanders = [
 },
 {
   name: "Jodah the Unifier",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/e/4/e4b1aa1e-b4e3-4346-8937-76b312501c70.jpg?1673307974",
+  owners: ["Leo"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 5,
   year: "Current",
@@ -1122,7 +1231,8 @@ const commanders = [
 },
 {
   name: "The First Sliver",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/0/6/06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87.jpg?1562202321",
+  owners: ["Arami"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 5,
   year: 2021,
@@ -1131,7 +1241,8 @@ const commanders = [
 },
 {
   name: "Captain Sisay",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/d/2/d24d441c-f37f-44fe-8a93-f5c89df807e4.jpg?1562937244",
+  owners: ["Noel"],
   colors: ["W", "G"],
   manaCost: 4,
   year: 2025,
@@ -1140,7 +1251,8 @@ const commanders = [
 },
 {
   name: "Urza, Lord High Artificer",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/7/b/7b7a348a-51f7-4dc5-8fe7-1c70fea5e050.jpg?1761053659",
+  owners: ["Tobbe"],
   colors: ["U"],
   manaCost: 4,
   year: 2023,
@@ -1149,7 +1261,8 @@ const commanders = [
 },
 {
   name: "Prosper, Tome-Bound",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1631839207",
+  owners: ["Noel"],
   colors: ["B", "R"],
   manaCost: 4,
   year: 2023,
@@ -1158,7 +1271,8 @@ const commanders = [
 },
 {
   name: "Atraxa, Praetors' Voice",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/d/0/d0d33d52-3d28-4635-b985-51e126289259.jpg?1599707796",
+  owners: ["Noel"],
   colors: ["W", "U", "B", "G"],
   manaCost: 4,
   year: 2021,
@@ -1167,7 +1281,8 @@ const commanders = [
 },
 {
   name: "Kambal, Profiteering Mayor",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/d/5/d53a775d-5898-41a8-b404-9b7d4721c6ba.jpg?1712356126",
+  owners: ["Tobbe"],
   colors: ["W", "B"],
   manaCost: 3,
   year: 2025,
@@ -1176,7 +1291,8 @@ const commanders = [
 },
 {
   name: "Sab-Sunen, Luxa Embodied",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/2/e/2ef555b1-666d-4386-8983-0e88f9b6cdec.jpg?1738356737",
+  owners: ["Richard"],
   colors: ["U", "G"],
   manaCost: 5,
   year: 2025,
@@ -1185,7 +1301,8 @@ const commanders = [
 },
 {
   name: "Liliana, Heretical Healer",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/d/8/d8b718d8-fca3-4b3e-9448-6067c8656a9a.jpg?1748260439",
+  owners: ["William"],
   colors: ["B"],
   manaCost: 3,
   year: "Current",
@@ -1194,7 +1311,8 @@ const commanders = [
 },
 {
   name: "Neyith of the Dire Hunt",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/0/c/0c1eed0f-9692-44c0-b1ad-afa691165d52.jpg?1632261896",
+  owners: ["Noel"],
   colors: ["R", "G"],
   manaCost: 4,
   year: 2022,
@@ -1203,7 +1321,8 @@ const commanders = [
 },
 {
   name: "Galadriel of Lothlorien",
-  owner: "Jonna",
+  image: "https://cards.scryfall.io/large/front/a/6/a6e5c3b3-9a70-4a1c-bfb3-db27e51c4b8d.jpg?1686969798",
+  owners: ["Jonna"],
   colors: ["U", "G"],
   manaCost: 3,
   year: 2025,
@@ -1212,7 +1331,8 @@ const commanders = [
 },
 {
   name: "Arcades, the Strategist",
-  owner: "Erik",
+  image: "https://cards.scryfall.io/large/front/1/e/1e90c638-d4b2-4243-bbc4-1cc10516c40f.jpg?1666961830",
+  owners: ["Erik"],
   colors: ["W", "U", "G"],
   manaCost: 4,
   year: "Current",
@@ -1221,7 +1341,8 @@ const commanders = [
 },
 {
   name: "Aminatou, the Fateshifter",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/b/c/bc010302-e715-4946-89eb-a214e0b836ba.jpg?1673148265",
+  owners: ["Noel"],
   colors: ["W", "U", "B"],
   manaCost: 3,
   year: 2019,
@@ -1230,7 +1351,8 @@ const commanders = [
 },
 {
   name: "Teysa Karlov",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/c/d/cd14f1ce-7fcd-485c-b7ca-01c5b45fdc01.jpg?1689999296",
+  owners: ["Leo"],
   colors: ["W", "B"],
   manaCost: 4,
   year: 2019,
@@ -1239,7 +1361,8 @@ const commanders = [
 },
 {
   name: "Godo, Bandit Warlord",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/0/1/01d566cf-cb32-461d-8afe-b0f3f4c24160.jpg?1689997867",
+  owners: ["Arami"],
   colors: ["R"],
   manaCost: 6,
   year: 2021,
@@ -1248,16 +1371,18 @@ const commanders = [
 },
 {
   name: "Storm, Force of Nature",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/6/a/6af7766e-7438-4128-a1f2-8b3b3ba3c650.jpg?1730758321",
+  owners: ["Noel"],
   colors: ["U", "R", "G"],
-  manaCost: 44,
+  manaCost: 4,
   year: 2025,
   archetype: "Spellslinger",
   salt: 6
 },
 {
   name: "Ral, Monsoon Mage",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/4/3/438d8a26-ddc9-4829-8aff-22d6af6575cf.jpg?1748260617",
+  owners: ["Noel"],
   colors: ["U", "R"],
   manaCost: 2,
   year: 2025,
@@ -1266,7 +1391,8 @@ const commanders = [
 },
 {
   name: "Ghired, Mirror of the Wilds",
-  owner: "Erik",
+  image: "https://cards.scryfall.io/large/front/e/4/e43e3d71-4fb8-4ab1-8c8f-b65ae3ad4cc4.jpg?1712356098",
+  owners: ["Erik"],
   colors: ["W", "R", "G"],
   manaCost: 3,
   year: "Current",
@@ -1275,7 +1401,8 @@ const commanders = [
 },
 {
   name: "Winota, Joiner of Forces",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/5/d/5dd13a6c-23d3-44ce-a628-cb1c19d777c4.jpg?1761053652",
+  owners: ["Richard"],
   colors: ["W", "R"],
   manaCost: 4,
   year: 2025,
@@ -1284,7 +1411,8 @@ const commanders = [
 },
 {
   name: "Braids, Arisen Nightmare",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/f/9/f96223d0-04c4-40c2-87a9-0c6bc74adddb.jpg?1752944690",
+  owners: ["Tobbe"],
   colors: ["B"],
   manaCost: 3,
   year: 2024,
@@ -1293,7 +1421,8 @@ const commanders = [
 },
 {
   name: "Meren of Clan Nel Toth",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1743207181",
+  owners: ["Tobbe"],
   colors: ["B", "G"],
   manaCost: 4,
   year: 2023,
@@ -1302,7 +1431,8 @@ const commanders = [
 },
 {
   name: "Niv-Mizzet Reborn",
-  owner: "Leo",
+  image: "https://cards.scryfall.io/large/front/5/6/56a2609d-b535-400b-81d9-72989a33c70f.jpg?1582037402",
+  owners: ["Leo"],
   colors: ["W", "U", "B", "R", "G"],
   manaCost: 5,
   year: 2021,
@@ -1311,7 +1441,8 @@ const commanders = [
 },
 {
   name: "Norin the Wary",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/f/6/f61ea59a-1db0-4e6b-bcde-19787c76a49b.jpg?1562946915",
+  owners: ["Arami"],
   colors: ["R"],
   manaCost: 1,
   year: 2019,
@@ -1320,7 +1451,8 @@ const commanders = [
 },
 {
   name: "Uril, the Miststalker",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/c/a/ca984fdb-aaca-4d8f-af2f-72387122607b.jpg?1673149243",
+  owners: ["Arami"],
   colors: ["W", "R", "G"],
   manaCost: 5,
   year: 2019,
@@ -1329,7 +1461,8 @@ const commanders = [
 },
 {
   name: "Negan, the Cold-Blooded",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/3/5/35d03f86-5219-4456-8136-802699ff26d3.jpg?1757464501",
+  owners: ["Filip"],
   colors: ["W", "B", "R"],
   manaCost: 5,
   year: 2022,
@@ -1338,7 +1471,8 @@ const commanders = [
 },
 {
   name: "Feather, the Redeemed",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/e/4/e4a2d2c6-8eaa-4760-b620-921b807baa2e.jpg?1557577142",
+  owners: ["Richard"],
   colors: ["W", "R"],
   manaCost: 3,
   year: 2022,
@@ -1347,7 +1481,8 @@ const commanders = [
 },
 {
   name: "Tuvasa the Sunlit",
-  owner: "Richard",
+  image: "https://cards.scryfall.io/large/front/b/d/bdda07ac-2f9f-4c8e-b3f6-b54d0afd730c.jpg?1755010091",
+  owners: ["Richard"],
   colors: ["W", "U", "G"],
   manaCost: 3,
   year: 2024,
@@ -1356,7 +1491,8 @@ const commanders = [
 },
 {
   name: "Shu Yun, the Silent Tempest",
-  owner: "Julius",
+  image: "https://cards.scryfall.io/large/front/b/d/bd79e83a-a34b-472c-9317-12af4ed2ca28.jpg?1562829332",
+  owners: ["Julius"],
   colors: ["W", "U", "R"],
   manaCost: 3,
   year: 2019,
@@ -1365,7 +1501,8 @@ const commanders = [
 },
 {
   name: "Reyhan, Last of the Abzan // Sakashima of a Thousand Faces",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/8/a/8afad106-a49b-4910-959e-228c109ea983.jpg?1644853038",
+  owners: ["Noel"],
   colors: ["U", "B", "G"],
   manaCost: 7,
   year: 2024,
@@ -1374,7 +1511,8 @@ const commanders = [
 },
 {
   name: "Muldrotha, the Gravetide",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/5/1/51710b19-68e3-4853-901f-e618bde61161.jpg?1730489512",
+  owners: ["Noel"],
   colors: ["U", "B", "G"],
   manaCost: 6,
   year: 2019,
@@ -1383,7 +1521,8 @@ const commanders = [
 },
 {
   name: "Baral, Chief of Compliance",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/6/0/60e16d94-1166-4050-8554-686e153a7f80.jpg?1759216571",
+  owners: ["Filip"],
   colors: ["U"],
   manaCost: 2,
   year: 2025,
@@ -1392,7 +1531,8 @@ const commanders = [
 },
 {
   name: "Marchesa, the Black Rose",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/3/2/3242a9f0-2ba3-4852-ac8f-366772ac1c62.jpg?1673148917",
+  owners: ["Tobbe"],
   colors: ["W", "B", "R"],
   manaCost: 4,
   year: 2025,
@@ -1401,7 +1541,8 @@ const commanders = [
 },
 {
   name: "Nekusar, the Mindrazer",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/4/a/4afdc65d-3c97-47af-83fa-df340389802e.jpg?1689999186",
+  owners: ["Noel"],
   colors: ["U", "B", "R"],
   manaCost: 5,
   year: 2019,
@@ -1410,7 +1551,8 @@ const commanders = [
 },
 {
   name: "Nadu, Winged Wisdom",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/9/4/94b67489-5eb0-4406-9bf3-27e50dc632eb.jpg?1763999881",
+  owners: ["Filip"],
   colors: ["U", "G"],
   manaCost: 3,
   year: 2024,
@@ -1419,7 +1561,8 @@ const commanders = [
 },
 {
   name: "Slicer, Hired Muscle",
-  owner: "Noel",
+  image: "https://cards.scryfall.io/large/front/9/d/9d9a9350-4734-4cc1-986d-467e6715199f.jpg?1763297347",
+  owners: ["Noel"],
   colors: ["R"],
   manaCost: 5,
   year: 2023,
@@ -1428,7 +1571,8 @@ const commanders = [
 },
 {
   name: "Inniaz, the Gale Force",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/b/2/b238485f-ef67-4295-892b-a10235368f74.jpg?1632261762",
+  owners: ["Filip"],
   colors: ["W", "U"],
   manaCost: 5,
   year: 2022,
@@ -1437,7 +1581,8 @@ const commanders = [
 },
 {
   name: "Pramikon, Sky Rampart",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/8/5/8569ad47-a243-402d-899f-4e6b17ea4e1e.jpg?1568003714",
+  owners: ["William"],
   colors: ["W", "U", "R"],
   manaCost: 3,
   year: "Current",
@@ -1446,7 +1591,8 @@ const commanders = [
 },
 {
   name: "Olivia, Opulent Outlaw",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/5/5/55e6c31b-f9e9-4e42-a875-985d99300d9d.jpg?1714110406",
+  owners: ["William"],
   colors: ["W", "B", "R"],
   manaCost: 4,
   year: "Current",
@@ -1455,7 +1601,8 @@ const commanders = [
 },
 {
   name: "Raff Capashen, Ship's Mage",
-  owner: "Tobbe",
+  image: "https://cards.scryfall.io/large/front/c/6/c681e33b-3d60-4aaa-8186-51866d8b79d1.jpg?1689999208",
+  owners: ["Tobbe"],
   colors: ["W", "U"],
   manaCost: 4,
   year: 2024,
@@ -1464,7 +1611,8 @@ const commanders = [
 },
 {
   name: "Arixmethes, Slumbering Isle",
-  owner: "William",
+  image: "https://cards.scryfall.io/large/front/b/f/bf561379-4e5f-486a-bcdf-6e08e105316e.jpg?1726285176",
+  owners: ["William"],
   colors: ["U", "G"],
   manaCost: 4,
   year: "Current",
@@ -1473,7 +1621,8 @@ const commanders = [
 },
 {
   name: "Ketramose, the New Dawn",
-  owner: "Filip",
+  image: "https://cards.scryfall.io/large/front/c/f/cffae8d0-7b4e-42ed-8124-24a86b38f490.jpg?1738356679",
+  owners: ["Filip"],
   colors: ["W", "B"],
   manaCost: 3,
   year: "Current",
@@ -1482,12 +1631,283 @@ const commanders = [
 },
 {
   name: "Zur, the Enchanter",
-  owner: "Arami",
+  image: "https://cards.scryfall.io/large/front/5/6/561cfc04-65ea-49a4-8638-b4631a7cf828.jpg?1675200810",
+  owners: ["Arami"],
   colors: ["W", "U", "B"],
   manaCost: 4,
   year: 2021,
   archetype: "Voltron",
   salt: 7
+},
+{
+  name: "Syr Gwyn, Hero of Ashvale",
+  image: "https://cards.scryfall.io/large/front/a/3/a33add37-379d-4a90-9c04-529dff676986.jpg?1571282693",
+  owners: ["Richard"],
+  colors: ["W", "B", "R"],
+  manaCost: 6,
+  year: 2022,
+  archetype: "Voltron",
+  salt: 1
+},
+{
+  name: "Marneus Calgar",
+  image: "https://cards.scryfall.io/large/front/e/7/e7517e8e-b424-4731-ba9d-6132bdefa6bf.jpg?1674058408",
+  owners: ["Noel"],
+  colors: ["W", "U", "B"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Value",
+  salt: 3
+},
+{
+  name: "Brion Stoutarm",
+  image: "https://cards.scryfall.io/large/front/1/0/10cf891b-efa0-465f-8029-245f09b6b1b2.jpg?1759411471",
+  owners: ["Tobbe"],
+  colors: ["W", "R"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Weird",
+  salt: 2
+},
+{
+  name: "Urza, Chief Artificer",
+  image: "https://cards.scryfall.io/large/front/e/a/ea409050-4296-4b76-a6cd-2896ce1b88e4.jpg?1705542672",
+  owners: ["Noel"],
+  colors: ["W", "U", "B"],
+  manaCost: 6,
+  year: 2025,
+  archetype: "Midrange",
+  salt: 4
+},
+{
+  name: "Tazri, Stalwart Survivor",
+  image: "https://cards.scryfall.io/large/front/2/2/227d0d7d-544b-4736-914d-10d5d752eb42.jpg?1684340488",
+  owners: ["Noel"],
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 3,
+  year: 2024,
+  archetype: "Value",
+  salt: 3
+},
+{
+  name: "Plagon, Lord of the Beach",
+  image: "https://cards.scryfall.io/large/front/7/f/7f8a6bfe-6033-4f6b-ab45-6b553f8b51a1.jpg?1730485829",
+  owners: ["Tobbe"],
+  colors: ["W", "U"],
+  manaCost: 3,
+  year: 2025,
+  archetype: "Value",
+  salt: 2
+},
+{
+  name: "Madame Vasra // Jenny Flint",
+  image: "https://cards.scryfall.io/large/front/9/4/94849571-928a-4c6d-9868-58f606941679.jpg?1696636737",
+  owners: ["Noel"],
+  colors: ["U", "R", "G"],
+  manaCost: 7,
+  year: 2024,
+  archetype: "Value",
+  salt: 2
+},
+{
+  name: "Satya, Aetherflux Genius",
+  image: "https://cards.scryfall.io/large/front/3/b/3b964bbe-54cc-425c-9cc6-c877f82af7ba.jpg?1727175658",
+  owners: ["Noel"],
+  colors: ["W", "U", "R"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Midrange",
+  salt: 4
+},
+{
+  name: "Winter, Misanthropic Guide",
+  image: "https://cards.scryfall.io/large/front/e/9/e9b81421-44cb-440f-a6ac-3ddf620f1989.jpg?1726286766",
+  owners: ["Noel"],
+  colors: ["B", "R", "G"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Control",
+  salt: 6
+},
+{
+  name: "Baeloth, Barrityl Entertainer // Noble Heritage",
+  image: "https://cards.scryfall.io/large/front/e/c/ec983aac-9eda-4086-ad7e-34da9b2987cc.jpg?1674140753",
+  owners: ["Erik"],
+  colors: ["W", "R"],
+  manaCost: 7,
+  year: "Current",
+  archetype: "Weird",
+  salt: 2
+},
+{
+  name: "Falco Spara, Pactweaver",
+  image: "https://cards.scryfall.io/large/front/a/e/ae25db8c-3d10-4196-b002-9d2aabd5f4de.jpg?1664413016",
+  owners: ["Filip"],
+  colors: ["W", "U", "G"],
+  manaCost: 4,
+  year: 2022,
+  archetype: "Value",
+  salt: 2
+},
+{
+  name: "Kwain, Itinerant Meddler",
+  image: "https://cards.scryfall.io/large/front/f/5/f571fef1-1fd2-4355-b803-5edccb6f4b94.jpg?1608911183",
+  owners: ["Filip"],
+  colors: ["W", "U"],
+  manaCost: 2,
+  year: 2021,
+  archetype: "Weird",
+  salt: 5
+},
+{
+  name: "Yisan, the Wanderer Bard",
+  image: "https://cards.scryfall.io/large/front/9/4/94e3a130-deeb-4bf4-a1f6-9219c3d8c373.jpg?1689999008",
+  owners: ["Filip", "Richard"],
+  colors: ["G"],
+  manaCost: 3,
+  year: 2019,
+  archetype: "Combo",
+  salt: 5
+},
+{
+  name: "Ulalek, Fused Atrocity",
+  image: "https://cards.scryfall.io/large/front/f/d/fdad1b0e-d3cc-4d76-ae7e-fee12558cf2c.jpg?1735676761",
+  owners: ["Noel"],
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 5,
+  year: 2024,
+  archetype: "Tribal",
+  salt: 4
+},
+{
+  name: "Wasitora, Nekoru Queen",
+  image: "https://cards.scryfall.io/large/front/0/7/07790bd5-0d27-490e-b1ae-3b866882461e.jpg?1673149269",
+  owners: ["Filip"],
+  colors: ["B", "R", "G"],
+  manaCost: 5,
+  year: 2019,
+  archetype: "Tribal",
+  salt: 5
+},
+{
+  name: "Esika, God of the Tree // The Prismatic Bridge",
+  image: "https://cards.scryfall.io/large/back/f/6/f6cd7465-9dd0-473c-ac5e-dd9e2f22f5f6.jpg?1631050188",
+  owners: ["Filip"],
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 8,
+  year: 2021,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Thrasios, Triton Hero // Vial Smasher, the Fierce",
+  image: "https://cards.scryfall.io/large/front/2/1/21e27b91-c7f1-4709-aa0d-8b5d81b22a0a.jpg?1721690845",
+  owners: ["Ben", "Noel"],
+  colors: ["U", "B", "R", "G"],
+  manaCost: 5,
+  year: "Current",
+  archetype: "Value",
+  salt: 4
+},
+{
+  name: "Mayael the Anima",
+  image: "https://cards.scryfall.io/large/front/3/0/309d95ad-e46c-4407-894d-d4cfdc7017f8.jpg?1562905228",
+  owners: ["Anis"],
+  colors: ["W", "R", "G"],
+  manaCost: 3,
+  year: 2021,
+  archetype: "Ramp",
+  salt: 2
+},
+{
+  name: "Tymna, the Weaver // Kraum, Ludevic's Opus",
+  image: "https://cards.scryfall.io/large/front/b/c/bc7cbe9b-324e-42b8-94e2-36e91cb32163.jpg?1644853048",
+  owners: ["Anis"],
+  colors: ["W", "U", "B", "R"],
+  manaCost: 8,
+  year: 2024,
+  archetype: "Combo",
+  salt: 4
+},
+{
+  name: "Estrid the Masked",
+  image: "https://cards.scryfall.io/large/front/3/3/3340b83e-72dc-42e2-9f93-92f732c047df.jpg?1755010071",
+  owners: ["Richard"],
+  colors: ["W", "U", "G"],
+  manaCost: 4,
+  year: 2018,
+  archetype: "Value",
+  salt: 1
+},
+{
+  name: "Elsha of the Infinite",
+  image: "https://cards.scryfall.io/large/front/c/0/c0728027-a1ec-4814-87c4-10c3baced0e0.jpg?1673148571",
+  owners: ["Anis"],
+  colors: ["W", "U", "R"],
+  manaCost: 5,
+  year: 2021,
+  archetype: "Combo",
+  salt: 4
+},
+{
+  name: "Zedruu the Greathearted",
+  image: "https://cards.scryfall.io/large/front/e/9/e9ea2a6b-5aaf-4178-b945-f409fe83c41a.jpg?1562424565",
+  owners: ["Tobbe"],
+  colors: ["W", "U", "R"],
+  manaCost: 4,
+  year: 2024,
+  archetype: "Weird",
+  salt: 3
+},
+{
+  name: "Aesi, Tyrant of Gyre Strait",
+  image: "https://cards.scryfall.io/large/front/6/7/673c21f8-02b6-4ac4-b2fc-df065b4ac662.jpg?1726285172",
+  owners: ["Hugo"],
+  colors: ["U", "G"],
+  manaCost: 6,
+  year: 2024,
+  archetype: "Value",
+  salt: 2
+},
+{
+  name: "Edric, Spymaster of Trest",
+  image: "https://cards.scryfall.io/large/front/2/2/22d6a4c9-4bdd-4e70-8481-95260e6aa7ab.jpg?1712354689",
+  owners: ["Danne"],
+  colors: ["U", "G"],
+  manaCost: 3,
+  year: 2023,
+  archetype: "Midrange",
+  salt: 3
+},
+{
+  name: "Yawgmoth, Thran Physician",
+  image: "https://scryfall.com/card/tdc/181/gix-yawgmoth-praetor",
+  owners: ["Noel", "Tobbe"],
+  colors: ["B"],
+  manaCost: 4,
+  year: 2025,
+  archetype: "Value",
+  salt: 6
+},
+{
+  name: "Omnath, Locus of Rage",
+  image: "https://cards.scryfall.io/large/front/7/7/777552e5-cc2d-460f-b26f-977c6ebcfc6b.jpg?1752945013",
+  owners: ["Richard"],
+  colors: ["R", "G"],
+  manaCost: 7,
+  year: 2019,
+  archetype: "Ramp",
+  salt: 1
+},
+{
+  name: "Sisay, Weatherlight Captain",
+  image: "https://cards.scryfall.io/large/front/5/a/5a293c45-1e73-4527-be2f-2dcd5c47b610.jpg?1650730165",
+  owners: ["Noel"],
+  colors: ["W", "U", "B", "R", "G"],
+  manaCost: 3,
+  year: "Current",
+  archetype: "Value",
+  salt: 5
 }
 ];
 
@@ -1532,6 +1952,29 @@ const commanders = [
       if (overlap.length === a.length && overlap.length === b.length) return "green";
       return "yellow";
     }
+
+    function compareOwners(guessedOwners, secretOwners) {
+  if (!Array.isArray(guessedOwners) || !Array.isArray(secretOwners)) {
+    return "red";
+  }
+
+  const exactMatch =
+    guessedOwners.length === secretOwners.length &&
+    guessedOwners.every(o => secretOwners.includes(o));
+
+  if (exactMatch) {
+    return "green";
+  }
+
+  const partialMatch =
+    guessedOwners.some(o => secretOwners.includes(o));
+
+  if (partialMatch) {
+    return "yellow";
+  }
+
+  return "red";
+}
 
     function renderColors(colors) {
   if (!colors || colors.length === 0) return "Colorless";
@@ -1586,10 +2029,17 @@ const commanders = [
       const row = document.createElement("tr");
 
       // Commander
-      row.appendChild(cell(guess.name));
+      row.appendChild(commanderCell(guess));
 
       // Owner
-      isWin &= addCell(row, guess.owner, guess.owner === secret.owner);
+      const ownerResult = compareOwners(guess.owners, secret.owners);
+
+isWin &= addCell(
+  row,
+  guess.owners.join(", "),
+  ownerResult === "green",
+  ownerResult
+);
 
       // Colors
       const colorResult = compareColors(guess.colors, secret.colors);
@@ -1626,6 +2076,31 @@ isWin &= addCell(row, manaResult.display, manaResult.color === "green");
       td.textContent = text;
       return td;
     }
+
+    function commanderCell(commander) {
+  const td = document.createElement("td");
+
+  // Image
+  if (commander.image) {
+    const img = document.createElement("img");
+    img.src = commander.image;
+    img.alt = commander.name;
+    img.style.width = "80px";
+    img.style.display = "block";
+    img.style.margin = "0 auto 6px";
+    img.style.borderRadius = "8px";
+    td.appendChild(img);
+  }
+
+  // Name
+  const nameDiv = document.createElement("div");
+  nameDiv.textContent = commander.name;
+  nameDiv.style.fontWeight = "bold";
+  td.appendChild(nameDiv);
+
+  return td;
+}
+
 
     function addCell(row, text, isCorrect, colorOverride) {
       const td = cell(text);
